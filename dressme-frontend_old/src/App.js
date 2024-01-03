@@ -23,8 +23,8 @@ function App() {
           <Route path='/' element={<ListClothCategory />}></Route>
           <Route path='/cloths' element={<ListCloths />}></Route>
           <Route path='/cloths/create' element={<Addcloths />}></Route>
-          <Route path='/cloths/search' element={<Searchfilter />}></Route>
           <Route path='/cloths/edit/:c_id' element={<Editcloths />}></Route>
+          <Route path='/cloths/search' element={<Searchfilter />}></Route>
           <Route path='/clothcategory/create' element={<Addclothcategory />}></Route>
           <Route path='/clothcategory/edit/:cid' element={<Editclothcategory />}></Route> 
         </Routes>

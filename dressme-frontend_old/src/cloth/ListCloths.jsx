@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 
 function ListCloths() {
-    const [search, setSearch] = useState('');
     const [records, setRecords] = useState([]);
     const navigate=useNavigate();
     async function fetchProductData() {
@@ -25,33 +23,16 @@ function ListCloths() {
         navigate("/cloths/edit/" + id);
     }
     const Removefunction = (id) => {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
+      if (window.confirm('Do you want to remove?')) {
           fetch("http://localhost:8080/cloths/" + id, {
               method: "DELETE"
           }).then((res) => {
-              //alert('Removed successfully.');
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-              });
+              alert('Removed successfully.')
               window.location.reload();
           }).catch((err) => {
               console.log(err.message)
           })
-          
-        }
-      });
-      
+      }
   }
 
 
@@ -66,11 +47,6 @@ function ListCloths() {
                     <div className="divbtn">
                         <Link to="/cloths/create" className="btn btn-success ">Add New (+)</Link>
                     </div>&nbsp;
-                    <div class="input-group mb-3">
-                   
-                    <input type="text" onChange={(e) => setSearch(e.target.value)}
-              placeholder='Filter By Weather / Category ' width="60" class="form-control"></input></div>
-
                     <div className="d-flex w-60 vh-50 justify-content-center aligns-item-center">
                 <table className="table table-hover  caption-top " >
                   <caption>Cloths Listing</caption>
@@ -87,11 +63,7 @@ function ListCloths() {
     </tr>
   </thead>
   <tbody>
-  {records && records.filter((item) => {
-                return search.toLowerCase() === ''
-                  ? item
-                  : (item.weatherTag.toLowerCase().includes(search.toLowerCase()) || (item.clothCategory.name.toLowerCase().includes(search.toLowerCase())));
-              }).map(item => (
+  {records && records.map(item => (
               
                  <tr >
       <td >{item.id}</td> 

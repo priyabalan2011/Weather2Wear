@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Swal from "sweetalert2";
 
 function Editclothcategory() {
     const { cid } = useParams();
@@ -39,9 +38,7 @@ function Editclothcategory() {
         headers:{"content-type":"application/json"},
         body:JSON.stringify(data)
       }).then((res)=>{
-        //alert('Saved successfully.')
-        Swal.fire({icon: "success",
-        title: "Updated successfully."});
+        alert('Saved successfully.')
         navigate('/');
       }).catch((err)=>{
         console.log(err.message)

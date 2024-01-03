@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState,useEffect } from "react";
 import { Link, useNavigate, useParams} from "react-router-dom";
-import Swal from "sweetalert2";
 
 function Editcloths() {
     
@@ -32,9 +31,7 @@ function Editcloths() {
         headers:{"content-type":"application/json"},
         body:JSON.stringify(data)
       }).then((res)=>{
-        //alert('Saved successfully.');
-        Swal.fire({icon: "success",
-        title: "Updated successfully."});
+        alert('Saved successfully.');
         navigate('/cloths');
       }).catch((err)=>{
         console.log(err.message)

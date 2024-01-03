@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 
 function Addclothcategory() {
     const[name,setName]=useState("");
@@ -21,9 +20,7 @@ console.log(data);
         headers:{"content-type":"application/json"},
         body:JSON.stringify(data)
       }).then((res)=>{
-        //alert('Saved successfully.')
-        Swal.fire({icon: "success",
-        title:"Saved successfully."});
+        alert('Saved successfully.')
         navigate('/');
       }).catch((err)=>{
         console.log(err.message)

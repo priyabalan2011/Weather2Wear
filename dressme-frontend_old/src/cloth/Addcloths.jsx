@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { useState,useEffect } from "react";
-import { Link, useNavigate, useParams} from "react-router-dom";
-import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 
-function Editcloths() {
-    
-    const { c_id } = useParams();
+
+function Addcloths() {
     const[name,setName]=useState("");
-    const[id,setId]=useState("");
+    
     const[validation,valchange]=useState(false);
     const navigate=useNavigate();
     const [records, setRecords] = useState([]);
@@ -25,20 +23,17 @@ function Editcloths() {
       //alert(clothCategory);
      const data={name,clothCategory,imageUrl,gender,weatherTag};
       //const data={name,imageUrl,gender,weatherTag};
-    console.log(data);
-    //alert(c_id);
-      fetch("http://localhost:8080/cloths/"+c_id,{
-        method:"PUT",
+console.log(data);
+      fetch("http://localhost:8080/cloths/create",{
+        method:"POST",
         headers:{"content-type":"application/json"},
         body:JSON.stringify(data)
       }).then((res)=>{
-        //alert('Saved successfully.');
-        Swal.fire({icon: "success",
-        title: "Updated successfully."});
+        alert('Saved successfully.');
         navigate('/cloths');
       }).catch((err)=>{
         console.log(err.message)
-     })
+      })
       const newContact = {
         name: data.name,
         clothCategory: {id : data.clothCategory.id, name : data.clothCategory.name},
@@ -86,39 +81,14 @@ function Editcloths() {
         // do stuff with data
         console.log(category);
         if(category) { setCategory(category) ;
-        //setClothCategory({id:category[0].id,name:category[0].name})
-    }
-        //setWeathertag("SUMMER");
-        //setGender("MEN");
+        setClothCategory({id:category[0].id,name:category[0].name})}
+        setWeathertag("SUMMER");
+        setGender("MEN");
         }
         //fetchProductData();
     
         useEffect(() => {
-        
           fetchProductData();
-
-          fetch("http://localhost:8080/cloths/" + c_id).then((res) => {
-            return res.json();
-        }).then((resp) => {
-            
-            setId(resp.id);
-            setName(resp.name);
-            
-            
-           // setCategory(resp.category);
-            setWeathertag(resp.weatherTag);
-            
-            setGender(resp.gender);
-            setImageurl(resp.imageUrl);
-            setCid(resp["clothCategory"].id);
-            setCcategory(resp["clothCategory"].name);
-            //alert(resp["clothCategory"].name);
-            setClothCategory({id:resp["clothCategory"].id,name:resp["clothCategory"].name});
-            
-                       
-        }).catch((err) => {
-            console.log(err.message);
-        })
         }, []);
 
   return (
@@ -136,12 +106,6 @@ function Editcloths() {
 
                                 <div className="row">
 
-                                <div className="col-lg-12">
-                                    <div className="form-group">
-                                        <label>ID</label>
-                                        <input value={id} disabled="disabled" className="form-control"></input>
-                                    </div>
-                                </div>
                     
 
                                     <div className="col-lg-12">
@@ -156,7 +120,7 @@ function Editcloths() {
                                     <div className="col-lg-12">
                                         <div className="form-group">
                                             <label>Gender</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <select className="custom-select" value={gender} id="gendername" onChange={handleGenderChange} >
+                                            <select className="custom-select" id="gendername" onChange={handleGenderChange} >
                                             
                                                 <option key="MEN" value="MEN">Men</option>
                                                 <option key="WOMEN" value="WOMEN">Women</option>
@@ -183,7 +147,7 @@ function Editcloths() {
                                     <div className="col-lg-12">
                                         <div className="form-group" >
                                             <label>Cloth Category</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <select className="custom-select" value={cid} id="Categoryname" onChange={handleChange}>
+                                            <select className="custom-select" id="Categoryname" onChange={handleChange}>
                                             {category && category.map(item => (
                                                 <option value={item.id} text={item.name}>{item.name}</option>
                                             ))}
@@ -223,4 +187,4 @@ function Editcloths() {
   )
 }
 
-export default Editcloths;
+export default Addcloths;

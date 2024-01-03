@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 
 function Addcloths() {
     const[name,setName]=useState("");
@@ -29,7 +29,9 @@ console.log(data);
         headers:{"content-type":"application/json"},
         body:JSON.stringify(data)
       }).then((res)=>{
-        alert('Saved successfully.');
+        //alert('Saved successfully.');
+        Swal.fire({icon: "success",
+        title:"Saved successfully."});
         navigate('/cloths');
       }).catch((err)=>{
         console.log(err.message)
@@ -151,7 +153,8 @@ console.log(data);
                                             {category && category.map(item => (
                                                 <option value={item.id} text={item.name}>{item.name}</option>
                                             ))}
-                                            </select><input type="hidden" value={cid} ></input><input type="hidden" value={ccategory} ></input>
+                                            </select>&nbsp;<a href="/">Add Cloth Category</a>
+                                            <input type="hidden" value={cid} ></input><input type="hidden" value={ccategory} ></input>
                                         </div>
                                     </div>&nbsp;&nbsp;
                                     
