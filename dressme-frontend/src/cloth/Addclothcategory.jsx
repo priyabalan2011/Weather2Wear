@@ -24,7 +24,7 @@ console.log(data);
         //alert('Saved successfully.')
         Swal.fire({icon: "success",
         title:"Saved successfully."});
-        navigate('/');
+        navigate('/listclothcategory');
       }).catch((err)=>{
         console.log(err.message)
       })
@@ -47,7 +47,7 @@ console.log(data);
 
                         <div className="card" style={{"textAlign":"left"}}>
                             <div className="card-title">
-                                <h2> Add ClothCategory</h2>
+                                <h2> Add ClothesCategory</h2>
                             </div>
                             <div className="card-body">
 
@@ -69,7 +69,7 @@ console.log(data);
                                     <div className="col-lg-12">
                                         <div className="form-group">
                                            <button className="btn btn-success" type="submit">Save</button>
-                                           <Link to="/" className="btn btn-danger">Back</Link> 
+                                           <Link to="/listclothcategory" className="btn btn-danger">Back</Link> 
                                         </div>
                                     </div>
 
