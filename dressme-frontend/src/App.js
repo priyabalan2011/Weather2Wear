@@ -30,6 +30,8 @@ import Checkweather from './Weather/Checkweather';
 import Sample from './Weather/Sample';
 import NavBar from './components/NavBar';
 import Forecast from './Weather/Forecast';
+import Wlogin from './Weather/Wlogin';
+import LoginRegister from './Weather/LoginRegister';
 
 
 
@@ -43,7 +45,7 @@ function App() {
       
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Wlogin />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/HomePage" element={<Userpage />} /> 
@@ -52,6 +54,7 @@ function App() {
         <Route path="/LogOut" element={<LogOut/>} />
         <Route path="/Events" element={<Events/>} />
         <Route path="/MyCloset" element={<MyCloset/>} />
+       
 
           <Route path='/listclothcategory' element={<ListClothCategory />}></Route>
           <Route path='/cloths' element={<ListCloths />}></Route>
@@ -66,6 +69,8 @@ function App() {
           <Route path='/Checkweather' element={<Checkweather />}></Route>
           <Route path='/Sample' element={<Sample/>}></Route>
           <Route path='/Forecast' element={<Forecast/>}></Route>
+          <Route path='/Wlogin' element={<Wlogin/>}></Route>
+          <Route path='/loginregister' element={<LoginRegister/>}></Route>
          
           
         </Routes>
