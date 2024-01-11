@@ -104,7 +104,7 @@ const WeatherApp = () => {
                                 <br />&nbsp;
                             </form>
                             <div class="weather__units">
-
+                                
                                 <span class="weather_unit_celsius"><input type="radio" name="exampleRadios" id="metric" value="metric" checked={units === 'metric'} onClick={unitChange} /><b>Celsius</b></span>&nbsp;&nbsp;
                                 <span class="weather_unit_farenheit"><input type="radio" name="exampleRadios" id="imperial" value="imperial" checked={units === 'imperial'} onClick={unitChange} /><b>Farenheit</b></span>
                             </div>

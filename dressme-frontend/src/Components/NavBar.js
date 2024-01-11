@@ -27,7 +27,7 @@ export default function NavBar(){
                <a class="nav-link" href="/Notifications"><b>Notifications</b></a>
              </li>
              <li class="nav-item">
-                <a class="nav-link" href="/LogOut"><b>Logout</b></a>
+                <a class="nav-link" href="/"><b>Logout</b></a>
               </li>
           </ul>
         </div>

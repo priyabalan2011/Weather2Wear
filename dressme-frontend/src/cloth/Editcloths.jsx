@@ -2,6 +2,7 @@ import React from 'react'
 import { useState,useEffect } from "react";
 import { Link, useNavigate, useParams} from "react-router-dom";
 import Swal from "sweetalert2";
+import NavBar from '../components/NavBar';
 
 function Editcloths() {
     
@@ -122,7 +123,7 @@ function Editcloths() {
         }, []);
 
   return (
-    <div>
+    <div><NavBar></NavBar>
 <div className="row">
                 <div className="d-flex w-100 vh-50 justify-content-center aligns-item-center">
                     <div className='w-50 border text-white p-5'>
