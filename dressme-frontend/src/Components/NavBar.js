@@ -15,7 +15,7 @@ export default function NavBar(){
                  <a class="nav-link" href="/cloths"><b>Clothes</b></a>
                </li>
             <li class="nav-item">
-              <a class="nav-link" href="/MyCloset"><b>My Closet</b></a>
+              <a class="nav-link" href="/ListCloset"><b>My Closet</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/Events"><b>Events</b></a>
