@@ -34,6 +34,7 @@ import Wlogin from './Weather/Wlogin';
 import LoginRegister from './Weather/LoginRegister';
 import ListCloset from './Mycloset/ListCloset';
 import AddCloset from './Mycloset/AddCloset';
+import EditCloset from './Mycloset/EditCloset';
 
 
 
@@ -75,6 +76,7 @@ function App() {
           <Route path='/loginregister' element={<LoginRegister/>}></Route>
           <Route path='/ListCloset' element={<ListCloset/>}></Route>
           <Route path='/AddCloset' element={<AddCloset/>}></Route>
+          <Route path='/EditCloset/:c_id' element={<EditCloset/>}></Route>
          
           
         </Routes>

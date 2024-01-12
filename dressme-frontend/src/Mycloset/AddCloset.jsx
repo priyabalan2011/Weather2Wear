@@ -15,7 +15,7 @@ const AddCloset = () => {
     const [gender, setGender] = useState("");
     const[closetLocation,setClosetLocation] = useState("");
     const [cloths, setCloths] = useState([]);
-    const[fav,setFav]=useState(false);
+    const[fav,setFav]=useState(true);
     const[clothTitle,setClothTitle]=useState("");
     const[username,setUsername]=useState("priyabalan");
 
@@ -25,7 +25,7 @@ const AddCloset = () => {
        const data={name,username,color,gender,weatherTag,closetLocation,fav};
         //const data={name,imageUrl,gender,weatherTag};
   console.log(data);
-        fetch("http://localhost:8080/cloths/create",{
+        fetch("http://localhost:8080/mycloset/create",{
           method:"POST",
           headers:{"content-type":"application/json"},
           body:JSON.stringify(data)
@@ -52,22 +52,7 @@ const AddCloset = () => {
         setRecords(newContacts);
   
       }
-    //   const handleChange = (e) => {
-         
-    //       var evt = document.getElementById("Categoryname");
-    //       const ctext=evt.options[evt.selectedIndex].text;
-    //      // alert(ctext);
-    //       setCcategory(evt.options[evt.selectedIndex].text);
-          
-  
-    //       const selectedValue = e.target.value;
-    //      // alert(selectedValue);
-    //       setCid(selectedValue);
-    //       setClothCategory({id:selectedValue,name:ctext});
-      
-    //       console.log(clothCategory);   
-          
-    //     };
+   
       const handleWeatherChange = (e) => {
           const selectedValue = e.target.value;      
          // alert(selectedValue); 
@@ -86,7 +71,7 @@ const AddCloset = () => {
           // do stuff with data
           console.log(category);
           if(category) { setCloths(category) ;
-         // setCloths(category.name)
+          setName(category[0].name)
          console.log("@@@@@@"+cloths);
         }
           setWeathertag("SUMMER");
@@ -103,7 +88,7 @@ const AddCloset = () => {
        
             var evt = document.getElementById("Closetname");
             const ctext=evt.options[evt.selectedIndex].text;
-            alert(ctext);
+           // alert(ctext);
            // setCloths(evt.options[evt.selectedIndex].text);
             
     
@@ -118,15 +103,14 @@ const AddCloset = () => {
           
           const handleisFavChange = (e) => {
        
-            var evt = document.getElementById("isFav");
-            const ctext=evt.options[evt.selectedIndex].text;
-            //alert(ctext);
+            var evt = document.getElementById("fav");
+            const ctext=evt.options[evt.selectedIndex].value;
+            alert(ctext);
             //setIsFav(evt.options[evt.selectedIndex].text);
             
     
-            const selectedValue = e.target.value;
-            alert(selectedValue);
-            setFav(selectedValue);
+            
+            setFav(ctext);
            // setCloths({id:selectedValue,name:ctext});
         
             //console.log(clothCategory);   
@@ -140,6 +124,7 @@ const AddCloset = () => {
             const ctext=evt.options[evt.selectedIndex].text;
            // alert(ctext);
             setClothTitle(evt.options[evt.selectedIndex].text);
+            setName(evt.options[evt.selectedIndex].text);
             
     
             const selectedValue = e.target.value;
@@ -166,13 +151,13 @@ const AddCloset = () => {
 
                                 <div className="row">
 
-                                <div className="col-lg-12">
+                                {/* <div className="col-lg-12">
                                         <div className="form-group">
                                             <label>Cloth Title</label>
                                             <input required value={name} onMouseDown={e=>valchange(true)} onChange={e=>setName(e.target.value)} className="form-control"></input>
                                         {name.length===0 && validation && <span className="text-danger">Enter the title</span>}
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     <div className="col-lg-12">
                                         <div className="form-group">
@@ -248,7 +233,7 @@ const AddCloset = () => {
                                     <div className="col-lg-12">
                                         <div className="form-group">
                                            <button className="btn btn-success" type="submit">Save</button>
-                                           <Link to="/listclothcategory" className="btn btn-danger">Back</Link> 
+                                           <Link to="/ListCloset" className="btn btn-danger">Back</Link> 
                                         </div>
                                     </div>
 

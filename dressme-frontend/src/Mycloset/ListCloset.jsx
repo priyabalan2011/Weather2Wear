@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar';
 
 
 const ListCloset = () => {
+  const [search, setSearch] = useState('');
     const [records, setRecords] = useState([]);
     const navigate=useNavigate();
     async function fetchProductData() {
@@ -23,7 +24,7 @@ const ListCloset = () => {
       }, []);
 
       const LoadEdit = (id) => {
-        navigate("/mycloset/edit/" + id);
+        navigate("/EditCloset/" + id);
     }
     const Removefunction = (id) => {
       Swal.fire({
@@ -68,7 +69,10 @@ const ListCloset = () => {
                         <Link to="/AddCloset" className="btn btn-success ">Add New (+)</Link>&nbsp;
                         {/* <Link to="/cloths" className="btn btn-primary ">Back To Clothes</Link> */}
                     </div>&nbsp;
-
+                    <div class="input-group mb-3">
+                   
+                   <input type="text" onChange={(e) => setSearch(e.target.value)}
+             placeholder='Filter By Title / Weather / Color ' width="60" class="form-control"></input></div>
                     
                     <div className="d-flex w-60 vh-50 justify-content-center aligns-item-center">
                 <table className="table table-hover  caption-top table-sm " >
@@ -81,11 +85,17 @@ const ListCloset = () => {
       <th scope="col" class="w-25">Weather</th>
       <th scope="col" class="w-25">Closet Location</th>
       <th scope="col" class="w-25">IsFavourite</th>
-      <th scope="col" class="w-25">Action</th>
+      <th scope="col" class="w-25">Edit</th>
+      <th scope="col" class="w-25">Delete</th>
     </tr>
   </thead>
   <tbody>
-  {records && records.map(item => (
+  {records && records.filter((item) => {
+                return search.toLowerCase() === ''
+                  ? item
+                  : (item.weatherTag.toLowerCase().includes(search.toLowerCase()) || (item.name.toLowerCase().includes(search.toLowerCase())) || (item.color.toLowerCase().includes(search.toLowerCase())));
+              }).map(item => (
+ 
               
                  <tr >
       <td scope="row">{item.id}</td>
@@ -93,9 +103,9 @@ const ListCloset = () => {
       <td>{item.color}</td>
       <td>{item.weatherTag}</td>
       <td>{item.closetLocation}</td>
-      <td>{item.isFav}</td>
-      <td><a onClick={() => { LoadEdit(item.id) }} className="btn btn-success">Edit</a>&nbsp;
-          <a onClick={() => { Removefunction(item.id) }} className="btn btn-danger">Remove</a>
+      <td>{(item.fav)?"Yes":"No"}</td>
+      <td><a onClick={() => { LoadEdit(item.id) }} className="btn btn-success">Edit</a>&nbsp;</td> 
+       <td>  <a onClick={() => { Removefunction(item.id) }} className="btn btn-danger">Remove</a>
       </td>
     </tr>
                 
