@@ -32,6 +32,10 @@ import NavBar from './components/NavBar';
 import Forecast from './Weather/Forecast';
 import Wlogin from './Weather/Wlogin';
 import LoginRegister from './Weather/LoginRegister';
+import ListCloset from './Mycloset/ListCloset';
+import AddCloset from './Mycloset/AddCloset';
+import EditCloset from './Mycloset/EditCloset';
+import Footer from './components/Footer';
 
 
 
@@ -71,11 +75,14 @@ function App() {
           <Route path='/Forecast' element={<Forecast/>}></Route>
           <Route path='/Wlogin' element={<Wlogin/>}></Route>
           <Route path='/loginregister' element={<LoginRegister/>}></Route>
+          <Route path='/ListCloset' element={<ListCloset/>}></Route>
+          <Route path='/AddCloset' element={<AddCloset/>}></Route>
+          <Route path='/EditCloset/:c_id' element={<EditCloset/>}></Route>
          
           
         </Routes>
       </BrowserRouter>
-      
+     
     </div>
   );
 }

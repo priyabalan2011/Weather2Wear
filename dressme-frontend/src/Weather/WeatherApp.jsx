@@ -9,6 +9,7 @@ import CurrentWeather from './CurrentWeather';
 import Forecast from './Forecast';
 import Checkweather from './Checkweather';
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 
 const WeatherApp = () => {
@@ -94,7 +95,7 @@ const WeatherApp = () => {
     }
 
     return (
-        <div ><NavBar />
+        <div ><NavBar /><h3><b>Hi {window.sessionStorage.getItem("username")}, Welcome To Weather2Wear Application</b></h3>
             <div class="header"><b>Weather2Wear Application</b></div>
             <div class="backimage">
                 <div class="container">
@@ -154,7 +155,9 @@ const WeatherApp = () => {
 
                     </div>
 
-                </div></div></div>
+                </div></div>
+                <Footer/>
+                </div>
     );
 }
 export default WeatherApp;

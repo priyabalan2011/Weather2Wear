@@ -19,6 +19,8 @@ const Wlogin = () => {
       console.log('Response:', response);
 
       if (response.data.success) {
+        sessionStorage.setItem("username", username);
+        sessionStorage.setItem("loggedIn", "true");
         navigate('/weather'); 
       } else {
         alert('Login failed: ' + response.data.message); 
