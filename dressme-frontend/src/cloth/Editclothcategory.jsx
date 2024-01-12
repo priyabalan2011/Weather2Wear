@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import Footer from '../components/Footer';
 
 function Editclothcategory() {
     const { cid } = useParams();
@@ -96,6 +97,7 @@ function Editclothcategory() {
 
             </div>
         </div>
+        <Footer/>
     </div>
      );
 }

@@ -35,6 +35,7 @@ import LoginRegister from './Weather/LoginRegister';
 import ListCloset from './Mycloset/ListCloset';
 import AddCloset from './Mycloset/AddCloset';
 import EditCloset from './Mycloset/EditCloset';
+import Footer from './components/Footer';
 
 
 
@@ -81,7 +82,7 @@ function App() {
           
         </Routes>
       </BrowserRouter>
-      
+     
     </div>
   );
 }

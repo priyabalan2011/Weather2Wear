@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 function ListCloths() {
     const [search, setSearch] = useState('');
@@ -114,7 +115,9 @@ function ListCloths() {
             </div>
 
 
-    </div></div>
+    </div>
+    <Footer/>
+    </div>
   )
   
 

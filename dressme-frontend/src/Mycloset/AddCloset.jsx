@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 const AddCloset = () => {
     const[name,setName]=useState("");
@@ -17,7 +18,7 @@ const AddCloset = () => {
     const [cloths, setCloths] = useState([]);
     const[fav,setFav]=useState(true);
     const[clothTitle,setClothTitle]=useState("");
-    const[username,setUsername]=useState("priyabalan");
+    const[username,setUsername]=useState("");
 
     const handlesubmit=(e)=>{
         e.preventDefault();
@@ -81,6 +82,10 @@ const AddCloset = () => {
       
           useEffect(() => {
             fetchProductData();
+            setUsername(window.sessionStorage.getItem("username"));
+            //alert(username);
+           // alert(window.sessionStorage.getItem("username"));
+
           }, []);
 
 
@@ -92,7 +97,7 @@ const AddCloset = () => {
            // setCloths(evt.options[evt.selectedIndex].text);
             
     
-            const selectedValue = e.target.value;
+           // const selectedValue = e.target.value;
            // alert(selectedValue);
            // setCid(selectedValue);
            // setCloths({id:selectedValue,name:ctext});
@@ -105,15 +110,9 @@ const AddCloset = () => {
        
             var evt = document.getElementById("fav");
             const ctext=evt.options[evt.selectedIndex].value;
-            alert(ctext);
-            //setIsFav(evt.options[evt.selectedIndex].text);
-            
-    
-            
+          
             setFav(ctext);
-           // setCloths({id:selectedValue,name:ctext});
-        
-            //console.log(clothCategory);   
+             
             
           };
 
@@ -126,13 +125,6 @@ const AddCloset = () => {
             setClothTitle(evt.options[evt.selectedIndex].text);
             setName(evt.options[evt.selectedIndex].text);
             
-    
-            const selectedValue = e.target.value;
-           // alert(selectedValue);
-           // setCid(selectedValue);
-           // setCloths({id:selectedValue,name:ctext});
-        
-            //console.log(clothCategory);   
             
           };
 
@@ -248,7 +240,7 @@ const AddCloset = () => {
                 </div>
                
             </div>
-
+<Footer/>
 
     </div>
   )
