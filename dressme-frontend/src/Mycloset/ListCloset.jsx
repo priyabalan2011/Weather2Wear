@@ -93,7 +93,7 @@ const ListCloset = () => {
   <tbody>
   {records && records.filter((item) => {
                 return search.toLowerCase() === ''
-                  ? item
+                  ? item.username.includes(window.sessionStorage.getItem("username"))
                   : (item.weatherTag.toLowerCase().includes(search.toLowerCase()) || (item.name.toLowerCase().includes(search.toLowerCase())) || (item.color.toLowerCase().includes(search.toLowerCase())));
               }).map(item => (
  

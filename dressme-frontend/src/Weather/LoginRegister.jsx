@@ -39,6 +39,8 @@ const LoginRegister = () => {
   
         
         if (data.success) {
+          sessionStorage.setItem("username", username);
+        sessionStorage.setItem("loggedIn", "true");
           navigate('/weather'); 
           
         } else {
