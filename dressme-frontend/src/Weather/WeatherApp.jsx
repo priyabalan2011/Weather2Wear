@@ -130,7 +130,7 @@ const WeatherApp = () => {
                                 </form>
 
                                 <div class="weather__units">
-                                    <SearchCities onSearchChange={handleOnSearchChange} />
+                                    <SearchCities onSearchChange={handleOnSearchChange} /><br/><br/>
                                     {currentWeather && (
 
 

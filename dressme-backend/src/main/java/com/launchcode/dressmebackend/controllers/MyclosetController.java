@@ -40,6 +40,7 @@ public class MyclosetController {
     public Mycloset updateCloth(@RequestBody Mycloset mycloset, @PathVariable int id) {
         return myclosetRepository.findById(id)
                 .map(mycloset1 -> {
+                    mycloset1.setName(mycloset.getName());
                     mycloset1.setGender(mycloset.getGender());
                     mycloset1.setUsername(mycloset.getUsername());
                     mycloset1.setWeatherTag(mycloset.getWeatherTag());
