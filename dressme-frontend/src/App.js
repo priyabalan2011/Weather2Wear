@@ -36,6 +36,7 @@ import ListCloset from './Mycloset/ListCloset';
 import AddCloset from './Mycloset/AddCloset';
 import EditCloset from './Mycloset/EditCloset';
 import Footer from './components/Footer';
+import OutfitSuggestion from './Weather/OutfitSuggestion';
 
 
 
@@ -78,6 +79,7 @@ function App() {
           <Route path='/ListCloset' element={<ListCloset/>}></Route>
           <Route path='/AddCloset' element={<AddCloset/>}></Route>
           <Route path='/EditCloset/:c_id' element={<EditCloset/>}></Route>
+          <Route path='/OutfitSuggestion' element={<OutfitSuggestion/>}></Route>
          
           
         </Routes>
