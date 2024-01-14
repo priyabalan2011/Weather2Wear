@@ -10,6 +10,7 @@ import Forecast from './Forecast';
 import Checkweather from './Checkweather';
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import OutfitSuggestion from "./OutfitSuggestion";
 
 
 const WeatherApp = () => {
@@ -145,6 +146,11 @@ const WeatherApp = () => {
                         </div>
 
                     </div><br />
+
+                    {(typeof data.main != 'undefined') ? 
+                <OutfitSuggestion /> :
+                <div>Loading...</div>}
+                <br/>
                     <div class="row">
 
 
