@@ -106,9 +106,10 @@ const WeatherApp = () => {
                                 <br />&nbsp;
                             </form>
                             <div class="weather__units">
-                                
-                                <span class="weather_unit_celsius"><input type="radio" name="exampleRadios" id="metric" value="metric" checked={units === 'metric'} onClick={unitChange} /><b>Celsius</b></span>&nbsp;&nbsp;
-                                <span class="weather_unit_farenheit"><input type="radio" name="exampleRadios" id="imperial" value="imperial" checked={units === 'imperial'} onClick={unitChange} /><b>Farenheit</b></span>
+                            <div class="row"><div class="col">
+                                <span class="weather_unit_celsius"><input type="radio" name="exampleRadios" id="metric" value="metric" checked={units === 'metric'} onClick={unitChange} /><b>Celsius</b></span>&nbsp;</div><div class="col">
+                                <span class="weather_unit_farenheit"><input type="radio" name="exampleRadios" id="imperial" value="imperial" checked={units === 'imperial'} onClick={unitChange} /><b>Farenheit</b></span></div>
+                                </div>
                             </div>
                         </div>
                         {(typeof data.main != 'undefined') ?
@@ -131,7 +132,7 @@ const WeatherApp = () => {
                                 </form>
 
                                 <div class="weather__units">
-                                    <SearchCities onSearchChange={handleOnSearchChange} /><br/><br/>
+                                    <SearchCities onSearchChange={handleOnSearchChange} />
                                     {currentWeather && (
 
 
