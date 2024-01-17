@@ -108,7 +108,7 @@ function Addcloths() {
 
                             <div className="card" style={{ "textAlign": "left" }}>
                                 <div className="card-title">
-                                    <h2> Add Clothes Category</h2>
+                                    <h2> Add Clothes Details</h2>
                                 </div>
                                 <div className="card-body">
 
